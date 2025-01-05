@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "types": ["node"],
+    "target": "ES2020",                    // Targeting modern JavaScript
+    "module": "ESNext",                    // ESM module format (required for ES Modules)
+    "moduleResolution": "node",             // Node-style module resolution
+    "esModuleInterop": true,               // Allow default imports from CommonJS modules
+    "strict": true,                        // Enable strict type-checking options
+    "outDir": "./dist",                    // Output compiled files to "dist" folder
+    "rootDir": "./src",                    // Set the root directory for the source files
+    "allowJs": true,                       // Allow JavaScript files in the project
+    "resolveJsonModule": true,             // Allow importing JSON files
+    "baseUrl": "./src",                    // Set base URL for module resolution, ensures correct imports
+    "paths": {
+      "*": ["node_modules/*"]              // Ensure proper path resolution for all imports
+    }
+  },
+  "include": ["src/**/*"],                 // Include all files in the "src" folder
+  "exclude": ["node_modules"]              // Exclude "node_modules" folder
+}
