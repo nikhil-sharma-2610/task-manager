@@ -1,21 +1,21 @@
 export const Task = {
-  id: '',
-  title: '',
-  description: '',
+  id: "",
+  title: "",
+  description: "",
   dueDate: new Date(),
-  status: 'todo',
-  column: 'TODO',
-  priority: 'medium' // new field
+  status: "todo",
+  column: "TODO",
+  priority: "medium", // new field
 };
 
 export const Column = {
-  id: 'TODO',
-  title: '',
-  taskIds: []
+  id: "TODO",
+  title: "",
+  taskIds: [],
 };
 
 export const BoardData = {
   tasks: {},
   columns: {},
-  columnOrder: []
+  columnOrder: [],
 };

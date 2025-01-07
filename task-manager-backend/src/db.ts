@@ -1,9 +1,10 @@
 import { Sequelize } from "sequelize";
 
 // SQLite connection does not require a username or password
-const sequelize = new Sequelize({
-  dialect: "sqlite",
-  storage: "./database.sqlite", // Path to SQLite file
+const sequelize = new Sequelize("task_manager", "root", "Meganikx@0", {
+  host: "localhost", // Your MySQL host (use 'localhost' if running locally)
+  dialect: "mysql", // MySQL dialect
+  logging: false, // Disable logging, can be set to true for debugging
 });
 
 sequelize

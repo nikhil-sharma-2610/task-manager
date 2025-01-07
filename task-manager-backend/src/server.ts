@@ -1,7 +1,9 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import Task from './models/Task.js';
-import sequelize from './db.js';
+import Task from "./models/Task.js";
+import sequelize from "./db.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 6001;
@@ -10,12 +12,16 @@ const port = process.env.PORT || 6001;
 app.use(cors());
 app.use(express.json());
 
-// Sync the database with Sequelize
-sequelize.sync({ force: true }).then(() => {
-  console.log("Database synced successfully!");
-}).catch((error) => {
-  console.error("Error syncing database:", error);
-});
+if (process.env.NODE_ENV !== "production") {
+  sequelize
+    .sync({ force: true })
+    .then(() => {
+      console.log("Database synced successfully!");
+    })
+    .catch((error) => {
+      console.error("Error syncing database:", error);
+    });
+}
 
 // POST /tasks - Create a new task
 app.post("/tasks", async (req: Request, res: Response) => {
@@ -28,7 +34,7 @@ app.post("/tasks", async (req: Request, res: Response) => {
       description,
       dueDate,
       priority,
-      status
+      status,
     });
 
     // Send back the newly created task

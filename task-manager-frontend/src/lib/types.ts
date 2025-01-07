@@ -2,13 +2,14 @@ export interface Task {
   id: string;
   title: string;
   description: string;
-  dueDate: Date;
-  status: 'todo' | 'inProgress' | 'done';
-  column: 'TODO' | 'IN_PROGRESS' | 'DONE';
+  dueDate: string;
+  status: "todo" | "inProgress" | "completed" | "overdue" | "dueToday";
+  column: "TODO" | "IN_PROGRESS" | "COMPLETED";
+  priority: "medium";
 }
 
 export interface Column {
-  id: 'TODO' | 'IN_PROGRESS' | 'DONE';
+  id: "TODO" | "IN_PROGRESS" | "DONE";
   title: string;
   taskIds: string[];
 }

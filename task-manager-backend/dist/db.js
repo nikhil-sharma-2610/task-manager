@@ -1,22 +1,16 @@
 import { Sequelize } from "sequelize";
+// SQLite connection does not require a username or password
 const sequelize = new Sequelize("task_manager", "root", "Meganikx@0", {
     host: "localhost",
     dialect: "mysql",
-    logging: false,
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000,
-    },
+    logging: false, // Disable logging, can be set to true for debugging
 });
-// Test the connection
 sequelize
     .authenticate()
     .then(() => {
-    console.log("Database connection established successfully.");
+    console.log("SQLite connection established successfully.");
 })
-    .catch((err) => {
-    console.error("Unable to connect to the database:", err);
+    .catch((error) => {
+    console.error("Unable to connect to the SQLite database:", error);
 });
 export default sequelize;

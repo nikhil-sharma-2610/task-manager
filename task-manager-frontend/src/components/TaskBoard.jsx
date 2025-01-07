@@ -1,7 +1,7 @@
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import TaskCard from './TaskCard';
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import TaskCard from "./TaskCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ClipboardList, Loader, CheckCircle } from 'lucide-react';
+import { ClipboardList, Loader, CheckCircle } from "lucide-react";
 
 const TaskBoard = ({ data, onDragEnd, onTaskClick, onTaskComplete }) => {
   const getColumnTasks = (columnId) => {
@@ -30,22 +30,22 @@ const TaskBoard = ({ data, onDragEnd, onTaskClick, onTaskComplete }) => {
         <div className="relative">
           <Tabs defaultValue="TODO" className="w-full">
             <TabsList className="grid w-full grid-cols-3 mb-8">
-              <TabsTrigger 
-                value="TODO" 
+              <TabsTrigger
+                value="TODO"
                 className="flex items-center gap-2 data-[state=active]:bg-blue-500 data-[state=active]:text-white"
               >
                 <ClipboardList className="w-4 h-4" />
                 To Do
               </TabsTrigger>
-              <TabsTrigger 
-                value="IN_PROGRESS" 
+              <TabsTrigger
+                value="IN_PROGRESS"
                 className="flex items-center gap-2 data-[state=active]:bg-yellow-500 data-[state=active]:text-white"
               >
                 <Loader className="w-4 h-4" />
                 In Progress
               </TabsTrigger>
-              <TabsTrigger 
-                value="DONE" 
+              <TabsTrigger
+                value="DONE"
                 className="flex items-center gap-2 data-[state=active]:bg-green-500 data-[state=active]:text-white"
               >
                 <CheckCircle className="w-4 h-4" />

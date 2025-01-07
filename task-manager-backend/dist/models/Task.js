@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-import sequelize from "../db";
+import sequelize from "../db.js";
 // Define the Task model class
 class Task extends Model {
 }
